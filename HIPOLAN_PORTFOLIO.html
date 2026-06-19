@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+
+<style>
+
+/* ================= BASE ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#07070f;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* ================= BACKGROUND ================= */
+.bg{
+  position:fixed;
+  width:100%;
+  height:100%;
+  z-index:-1;
+}
+
+.circle{
+  position:absolute;
+  width:350px;
+  height:350px;
+  border-radius:50%;
+  filter:blur(80px);
+}
+
+.circle:nth-child(1){background:rgba(236,72,153,0.18);}
+.circle:nth-child(2){background:rgba(168,85,247,0.18);top:40%;left:65%;}
+.circle:nth-child(3){background:rgba(244,114,182,0.15);top:70%;left:20%;}
+
+/* ================= NAV ================= */
+nav{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  padding:18px;
+  position:sticky;
+  top:0;
+  background:rgba(10,10,20,0.6);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+nav a{
+  color:#c7c7c7;
+  text-decoration:none;
+  font-size:13px;
+  transition:.3s;
+}
+
+nav a:hover{
+  color:#ec4899;
+}
+
+/* ================= HERO ================= */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:60px;
+  padding:80px 60px;
+  flex-wrap:wrap;
+}
+
+.hero-text{
+  max-width:550px;
+}
+
+.hero h1{
+  font-size:58px;
+  line-height:1.1;
+}
+
+.gradient{
+  background:linear-gradient(90deg,#ec4899,#a855f7);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.justified{
+  text-align:justify;
+  margin-top:15px;
+  color:#c7c7c7;
+  line-height:1.8;
+}
+
+/* HERO IMAGE */
+.hero-img{
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid #ec4899;
+  box-shadow:0 0 60px rgba(236,72,153,0.3);
+}
+
+/* BUTTONS */
+.buttons{
+  margin-top:20px;
+  display:flex;
+  gap:15px;
+}
+
+.btn{
+  padding:12px 18px;
+  border-radius:10px;
+  text-decoration:none;
+}
+
+.primary{
+  background:#ec4899;
+  color:white;
+}
+
+.outline{
+  border:1px solid #a855f7;
+  color:#a855f7;
+}
+
+/* ================= SECTIONS ================= */
+section{
+  padding:90px 60px;
+  text-align:center;
+}
+
+h2{
+  color:#ec4899;
+  margin-bottom:30px;
+}
+
+/* ================= ABOUT ================= */
+.about-wrapper{
+  display:flex;
+  align-items:center; /* FIXED */
+  justify-content:center;
+  gap:40px;
+  flex-wrap:wrap;
+}
+
+/* LEFT SIDE */
+.about-content{
+  max-width:600px;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+/* CARDS */
+.about-card{
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:15px;
+  border:1px solid rgba(255,255,255,0.08);
+  color:#c7c7c7;
+  line-height:1.7;
+  text-align:justify;
+}
+
+/* EDUCATION ITEMS */
+.edu-item{
+  margin-bottom:12px;
+  padding:12px;
+  border-left:3px solid #ec4899;
+  background:rgba(255,255,255,0.03);
+  border-radius:10px;
+}
+
+/* RIGHT IMAGE FIXED */
+.about-img{
+  width:340px;
+  height:auto;
+  max-height:100%;
+  align-self:center;
+  object-fit:cover;
+  border-radius:20px;
+  border:4px solid #ec4899;
+  box-shadow:0 0 60px rgba(236,72,153,0.25);
+}
+
+/* ================= SKILLS ================= */
+.skills{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.skill{
+  padding:10px 14px;
+  background:rgba(255,255,255,0.05);
+  border-radius:20px;
+}
+
+/* ================= PROJECTS ================= */
+.project-grid{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:20px;
+}
+
+.project{
+  width:320px;
+  padding:20px;
+  background:rgba(255,255,255,0.05);
+  border-radius:15px;
+}
+
+/* ================= EXPERIENCE ================= */
+.exp{
+  max-width:600px;
+  margin:10px auto;
+  padding:18px;
+  background:rgba(255,255,255,0.05);
+  border-radius:12px;
+}
+
+/* ================= CONTACT ================= */
+.contact{
+  display:inline-block;
+  padding:20px;
+  background:rgba(255,255,255,0.05);
+  border-radius:12px;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  text-align:center;
+  padding:20px;
+  color:#777;
+  background:#0b0b12;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+<div class="bg">
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#about">ABOUT</a>
+  <a href="#skills">SKILLS</a>
+  <a href="#projects">PROJECTS</a>
+  <a href="#experience">EXPERIENCE</a>
+  <a href="#contact">CONTACT</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <img src="Hipolan 2x2.jpg" class="hero-img">
+
+  <div class="hero-text">
+    <h1>Hi, I'm <span class="gradient">Dennish Edille Hipolan</span></h1>
+
+    <p class="justified">
+      Information Systems student passionate about UI/UX design and system development.
+    </p>
+
+    <div class="buttons">
+      <a href="#projects" class="btn primary">View Work</a>
+      <a href="resume.pdf" class="btn outline">Download CV</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Me</h2>
+
+  <div class="about-wrapper">
+
+    <div class="about-content">
+
+      <div class="about-card">
+        <h3>About Me</h3>
+        I am a BSIS student passionate about IT, UI/UX design, and system development.
+      </div>
+
+      <div class="about-card">
+        <h3>Educational Background</h3>
+
+        <div class="edu-item">
+          <b>Rizal Elementary School</b>
+          <p>2015 - 2016</p>
+        </div>
+
+        <div class="edu-item">
+          <b>Northern Paramedical and Technological College</b>
+          <p>ICT (2016 - 2022)</p>
+        </div>
+
+        <div class="edu-item">
+          <b>Davao del Norte State College</b>
+          <p>BS Information Systems (2022 - Present)</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <img src="about.jpg" class="about-img">
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div class="skill">HTML</div>
+    <div class="skill">CSS</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">UI/UX</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="project-grid">
+    <div class="project">Clinic Management System</div>
+    <div class="project">Portfolio Website</div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <h2>Experience</h2>
+
+  <div class="exp">Government Intern</div>
+  <div class="exp">Factory Worker</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact">
+    Email: hipolan.dennishedille@dnsc.edu.ph
+  </div>
+</section>
+
+<footer>
+  All Rights Reserved · 2026
+</footer>
+
+</body>
+</html>
